@@ -5,6 +5,11 @@ module.exports = async (req, res) => {
   try {
     const { name, image, ps, atk, def, vel, height, weight, type } = req.body;
 
+    if (!name || !image || !ps || !atk || !def || !type)
+      return res
+        .status(400)
+        .json({ error: "Por favor llenar los datos obligatorios" });
+
     const nameRegex = /^[a-zA-Z]+$/;
     if (!nameRegex.test(name))
       return res.status(400).json({

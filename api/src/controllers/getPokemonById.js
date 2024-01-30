@@ -29,26 +29,29 @@ module.exports = async (req, res) => {
         types: allTypes,
       };
 
+      console.log(pokemon);
+
       res.status(200).json(pokemon);
-    } else if (id >= 152) {
-      const pokemon = Pokemon.findOne({ where: { id: id } });
-      const type = Type.findOne({ where: { id: id } });
+    } else if (id > 151) {
+      const pokemon = await Pokemon.findOne({
+        where: { id: id },
+        include: [
+          {
+            model: Type,
+            through: { attributes: [] },
+          },
+        ],
+      });
 
       if (pokemon.name) {
-        const pokemon_type = {
-          id: pokemon.id,
-          name: pokemon.name,
-          image: pokemon.image,
-          ps: pokemon.ps,
-          atk: pokemon.atk,
-          def: pokemon.def,
-          vel: pokemon.vel,
-          height: pokemon.height,
-          weight: pokemon.weight,
-          types: type.name,
+        const { Types, ...rest } = pokemon.get({ plain: true });
+
+        const detailedPokemon = {
+          ...rest,
+          types: Types.map((type) => type.name),
         };
 
-        res.status(200).json(pokemon_type);
+        res.status(200).json(detailedPokemon);
       } else {
         res.status(404).json({ error: "Pokemon not found" });
       }

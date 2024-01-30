@@ -1,0 +1,38 @@
+.container {
+  width: 10em;
+  height: 22em;
+  margin: 1em;
+  padding: 0.5em 0.8em 0.5em 0.5em;
+  border: solid 0.3em whitesmoke;
+  border-radius: 1em;
+  color: whitesmoke;
+  background: #0042ac;
+  box-shadow: 2px 2px 25px 13px #e1e1e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container:hover {
+  background: #022d76;
+}
+
+.name {
+  font-size: small;
+  margin: 0.1em 0;
+}
+
+.img {
+  width: 17em;
+  height: 17em;
+}
+
+.img:hover {
+  width: 17.5em;
+  height: 17.5em;
+}
+
+.type {
+  margin: 0;
+  font-size: smaller;
+}

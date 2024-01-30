@@ -1,0 +1,120 @@
+.title {
+  grid-area: title;
+}
+
+.formContainer {
+  grid-area: formContainer;
+}
+
+.cardContainer {
+  grid-area: cardContainer;
+}
+
+.container {
+  margin-top: 3em;
+  color: #e0d0ed;
+  display: grid;
+  grid-template-columns: repeat(auto);
+  grid-template-rows: repeat(auto);
+  grid-template-areas:
+    "title title"
+    "formContainer cardContainer";
+  justify-items: center;
+  align-items: center;
+}
+
+.formContainer {
+  margin-right: 7em;
+  width: fit-content;
+  height: fit-content;
+}
+
+.text {
+  margin: 0;
+}
+
+.inputText {
+  width: 18em;
+  height: 2em;
+  margin-right: 0.5em;
+  padding: 0.3em;
+  background: whitesmoke;
+  border-radius: 1em;
+  border: none;
+  color: rgb(24, 22, 22);
+}
+
+.inputNumber {
+  width: 9em;
+  height: 2em;
+  margin-right: 0.5em;
+  padding: 0.3em;
+  background: whitesmoke;
+  border-radius: 1em;
+  border: none;
+  color: rgb(24, 22, 22);
+}
+
+.typesContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.inputType {
+  width: 2em;
+  height: 3em;
+}
+
+.typeText {
+  font-size: larger;
+}
+
+.btn {
+  width: 5em;
+  height: 2.5em;
+  padding: 0.3em;
+  border: none;
+  border-radius: 0.2em;
+  background-color: #0042ac;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #022d76;
+}
+
+.cardContainer {
+  width: 20em;
+  height: 40em;
+  margin: 1em;
+  padding: 0.5em 0.8em 0.5em 0.5em;
+  border: solid 0.3em whitesmoke;
+  border-radius: 1em;
+  color: whitesmoke;
+  background: linear-gradient(
+    139deg,
+    #091e43 20%,
+    #022d76 40%,
+    #0042ac 60%,
+    #009dff 80%,
+    #0fb1ff 100%
+  );
+  box-shadow: 2px 2px 25px 13px #e1e1e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name {
+  font-size: larger;
+}
+
+.img {
+  width: 30em;
+  height: 30em;
+}
+
+.type {
+  font-size: medium;
+}

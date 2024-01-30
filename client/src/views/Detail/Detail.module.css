@@ -1,0 +1,109 @@
+.container {
+  margin-top: 3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 5em;
+  height: 2.5em;
+  margin-right: 70em;
+  margin-bottom: 1.5em;
+  padding: 0.3em;
+  border: none;
+  border-radius: 0.2em;
+  background-color: #0042ac;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #022d76;
+}
+
+.id {
+  grid-area: id;
+}
+
+.name {
+  grid-area: name;
+}
+
+.img {
+  grid-area: img;
+}
+
+.types {
+  grid-area: types;
+}
+
+.stats {
+  grid-area: stats;
+}
+
+.statsN {
+  grid-area: statsN;
+}
+
+.infoContainer {
+  width: 50vw;
+  height: 60vh;
+  padding: 5em;
+  margin-right: 20em;
+  margin-bottom: 2em;
+  background: RGBA(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  border: solid #e1e1e1 2px;
+  border-radius: 0.2em;
+  display: grid;
+  grid-template-columns: repeat(15em);
+  grid-template-rows: repeat(12.5em);
+  grid-template-areas:
+    "id . . name"
+    "img img types types"
+    "img img stats stats"
+    "img img statsN statsN";
+  align-content: center;
+}
+
+.id {
+  text-align: start;
+  font-size: large;
+}
+
+.name {
+  text-align: start;
+  font-size: large;
+  text-transform: uppercase;
+}
+
+.img {
+  width: 25em;
+  height: 25em;
+  margin: 0.5em;
+}
+
+.types {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+}
+
+.stat {
+  margin: 0.5em;
+  font-size: medium;
+}
+
+.statsN {
+  display: flex;
+  flex-direction: row;
+}

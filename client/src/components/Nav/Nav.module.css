@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  padding: 20px, 100px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: #0042ac;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+}
+
+.btn {
+  padding: 0.5em 2em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.2em;
+  text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.6);
+  background: transparent;
+  border: none;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #d8d8d8;
+  background: #022d76;
+}

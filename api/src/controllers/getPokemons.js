@@ -30,41 +30,26 @@ module.exports = async (req, res) => {
       };
     });
 
-    const pokemons = await Promise.all(pokemonDataPromises);
+    const pokemonsApi = await Promise.all(pokemonDataPromises);
 
-    const pokemonsDB = await Pokemon.findAll();
-
-    const idPokemons = pokemonsDB.map((pokemon) => {
-      return pokemon.id;
+    const pokemonsDB = await Pokemon.findAll({
+      include: [
+        {
+          model: Type,
+          through: { attributes: [] },
+        },
+      ],
     });
 
-    const typeDB = await Type.findAll({
-      where: { id: idPokemons },
-      raw: true,
-    });
-
-    const dbPokemons = pokemonsDB.map((pokemon) => {
-      const relatedTypes = typeDB
-        .filter((type) => type.id === type.id)
-        .map((obj) => {
-          return obj.type.name;
-        });
-
+    const detailedPokemons = pokemonsDB.map((pokemon) => {
+      const { Types, ...rest } = pokemon.get({ plain: true });
       return {
-        id: pokemon.id,
-        name: pokemon.name,
-        image: pokemon.image,
-        ps: pokemon.ps,
-        atk: pokemon.atk,
-        def: pokemon.def,
-        vel: pokemon.vel,
-        height: pokemon.height,
-        weight: pokemon.weight,
-        types: relatedTypes,
+        ...rest,
+        types: Types.map((type) => type.name),
       };
     });
 
-    const allPokemons = [...pokemons, ...dbPokemons];
+    const allPokemons = [...pokemonsApi, ...detailedPokemons];
 
     res.status(200).json(allPokemons);
   } catch (error) {

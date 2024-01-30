@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  color: #e8e8e8;
+  border: solid #0955d0;
+  background-color: #0955d0;
+  border-radius: 0.4em;
+  margin: 1.5em;
+  padding: 1em;
+  width: auto;
+}
+
+.btn:hover {
+  border: solid #e8e8e8;
+}
+
+.selected {
+  background-color: #0042ac;
+  border: solid #e8e8e8;
+  color: #e8e8e8;
+}

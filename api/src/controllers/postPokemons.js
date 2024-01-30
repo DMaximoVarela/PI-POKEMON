@@ -3,12 +3,12 @@ const { Pokemon, Type } = require("../db");
 
 module.exports = async (req, res) => {
   try {
-    const { name, image, ps, atk, def, vel, height, weight, type } = req.body;
+    const { name, image, ps, atk, def, vel, height, weight, types } = req.body;
 
-    if (!name || !image || !ps || !atk || !def || !type)
-      return res
-        .status(400)
-        .json({ error: "Por favor llenar los datos obligatorios" });
+    if (!name || !image || !ps || !atk || !def || !types)
+      return res.status(400).json({
+        error: "Faltan llenar los datos obligatorios",
+      });
 
     const nameRegex = /^[a-zA-Z]+$/;
     if (!nameRegex.test(name))
@@ -33,17 +33,23 @@ module.exports = async (req, res) => {
 
     let typesDB = [];
 
-    if (typesDB.length == 0) {
+    if (typesDB.length === 0) {
       await axios("http://localhost:3001/types");
     }
 
     typesDB = await Type.findAll();
 
-    const types = typesDB.filter((t) => {
-      const typeName = t.name;
+    const availableTypes = typesDB.map((t) => t.name);
 
-      return type === typeName;
-    });
+    const invalidTypes = types.filter((type) => !availableTypes.includes(type));
+
+    if (invalidTypes.length > 0) {
+      return res.status(400).json({
+        error: `Tipo/s de Pokémon inválido/s: ${invalidTypes.join(", ")}`,
+      });
+    }
+
+    const selectedTypes = typesDB.filter((t) => types.includes(t.name));
 
     const [pokemon, created] = await Pokemon.findOrCreate({
       where: {
@@ -59,7 +65,7 @@ module.exports = async (req, res) => {
     });
 
     if (created) {
-      await pokemon.addType(types);
+      await pokemon.addTypes(selectedTypes);
     } else {
       return res.status(400).json({ error: "Pokemon already exists" });
     }
@@ -74,7 +80,7 @@ module.exports = async (req, res) => {
       vel: pokemon.vel,
       height: pokemon.height,
       weight: pokemon.weight,
-      types: types.map((t) => {
+      types: selectedTypes.map((t) => {
         return t.name;
       }),
     };

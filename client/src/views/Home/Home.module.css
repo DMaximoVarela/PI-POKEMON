@@ -1,0 +1,53 @@
+.container {
+  margin-top: 7em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slctContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sorts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.slct {
+  width: 10em;
+  margin: 1em;
+  padding: 0.5em;
+  background: #0042ac;
+  color: #e8e8e8;
+  border: solid #0042ac;
+  border-radius: 0.4em;
+}
+
+.btn {
+  width: 10em;
+  margin: 1em;
+  padding: 0.2em;
+  background-color: #0042ac;
+  color: #e8e8e8;
+  border: solid transparent;
+  border-radius: 0.4em;
+}
+
+.btn:hover {
+  border: solid #e8e8e8;
+  background: #022d76;
+}

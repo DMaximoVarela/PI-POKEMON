@@ -12,7 +12,7 @@ const Detail = () => {
       if (data.name) {
         setPokemon(data);
       } else {
-        window.alert("No hay personajes con ese ID");
+        window.alert("No hay pokemons con ese ID");
       }
     });
     return setPokemon({});
@@ -64,7 +64,7 @@ const Detail = () => {
             </div>
           </div>
         ) : (
-          ""
+          <h2>Error: Pokemon Not Found </h2>
         )}
       </div>
     </>

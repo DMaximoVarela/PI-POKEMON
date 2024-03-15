@@ -11,3 +11,7 @@ export const FILTER_BY_ORIGIN = "FILTER_BY_ORIGIN";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 
 export const ORDER_BY_ATK = "ORDER_BY_ATK";
+
+export const GET_POKEMONS_DB = "GET_POKEMONS_DB";
+
+export const DELETE_POKEMON = "DELETE_POKEMON";

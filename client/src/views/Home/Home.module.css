@@ -6,6 +6,18 @@
   align-items: center;
 }
 
+.slctText {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.slctText h2 {
+  margin-right: 7.5em;
+  margin-left: 7.5em;
+}
+
 .slctContainer {
   display: flex;
   flex-direction: row;

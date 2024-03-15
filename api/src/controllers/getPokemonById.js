@@ -29,8 +29,6 @@ module.exports = async (req, res) => {
         types: allTypes,
       };
 
-      console.log(pokemon);
-
       res.status(200).json(pokemon);
     } else if (id > 151) {
       const pokemon = await Pokemon.findOne({

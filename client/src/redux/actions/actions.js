@@ -7,6 +7,8 @@ import {
   FILTER_BY_ORIGIN,
   ORDER_BY_NAME,
   ORDER_BY_ATK,
+  GET_POKEMONS_DB,
+  DELETE_POKEMON,
 } from "./actions-types";
 
 export const getPokemons = () => {
@@ -75,3 +77,34 @@ export const orderByAtk = (payload) => ({
   type: ORDER_BY_ATK,
   payload,
 });
+
+export const getPokemonsDB = () => {
+  const URL = "http://localhost:3001/database";
+
+  return async (dispatch) => {
+    try {
+      const { data } = await axios(URL);
+      dispatch({
+        type: GET_POKEMONS_DB,
+        payload: data,
+      });
+    } catch (error) {
+      alert(error.response.data.error);
+    }
+  };
+};
+
+export const deletePokemon = (id) => {
+  const endpoint = `http://localhost:3001/pokemons/${id}`;
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete(endpoint);
+      dispatch({
+        type: DELETE_POKEMON,
+        payload: data,
+      });
+    } catch (error) {
+      alert(error.response.data.error);
+    }
+  };
+};

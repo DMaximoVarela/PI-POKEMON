@@ -33,7 +33,7 @@ const Home = () => {
     if (pokemons.length < 151) {
       dispatch(getPokemons());
     } else {
-      alert("Ya estan todos los pokemons!");
+      alert("All the pokemons are already here!");
     }
   };
 
@@ -55,17 +55,18 @@ const Home = () => {
 
   return (
     <div className={style.container}>
+      <div className={style.slctText}>
+        <h2>FILTERS:</h2>
+        <h2>SORTS:</h2>
+      </div>
       <div className={style.slctContainer}>
         <div className={style.filters}>
-          <h3>FILTERS:</h3>
+          <h3>By Type:</h3>
           <select
             onChange={handleFilterByType}
-            defaultValue={"ByType"}
+            defaultValue={"All"}
             className={style.slct}
           >
-            <option value="ByType" disabled="disabled">
-              By Type
-            </option>
             <option value="All">All</option>
             {types?.map((t) => (
               <option key={t.name} value={t.name}>
@@ -73,42 +74,41 @@ const Home = () => {
               </option>
             ))}
           </select>
+          <h3>By Origin:</h3>
           <select
             onChange={handleFilterByOrigin}
-            defaultValue={"ByOrigin"}
+            defaultValue={"All"}
             className={style.slct}
           >
-            <option value="ByOrigin" disabled="disabled">
-              By Origin
-            </option>
             <option value="All">All</option>
             <option value="API">Api</option>
             <option value="DATABASE">Database</option>
           </select>
         </div>
-        <h3>SORTS:</h3>
         <div className={style.sorts}>
+          <h3>By Name:</h3>
           <select
             onChange={handleOrderByName}
-            defaultValue={"ByName"}
+            defaultValue={"disordered"}
             className={style.slct}
           >
-            <option value="ByName" disabled="disabled">
-              By Name
+            <option value="disordered" disabled="disabled">
+              Disordered
             </option>
-            <option value="ASC">Ascendente</option>
-            <option value="DES">Descendiente</option>
+            <option value="ASC">Ascendent</option>
+            <option value="DES">Descendent</option>
           </select>
+          <h3>By ATK:</h3>
           <select
             onChange={handleOrderByAtk}
-            defaultValue={"ByATK"}
+            defaultValue={"disordered"}
             className={style.slct}
           >
-            <option value="ByATK" disabled="disabled">
-              By ATK
+            <option value="disordered" disabled="disabled">
+              Disordered
             </option>
-            <option value="ASC">Ascendente</option>
-            <option value="DES">Descendiente</option>
+            <option value="ASC">Ascendent</option>
+            <option value="DES">Descendent</option>
           </select>
         </div>
       </div>

@@ -1,0 +1,60 @@
+.container {
+  margin-top: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  margin: 0;
+}
+
+.inputText {
+  padding: 0.5em;
+  background: #0042ac;
+  border: none;
+  border-radius: 0.4em;
+}
+
+.img {
+  width: 12em;
+  height: 12em;
+}
+
+.inputNumber {
+  padding: 0.5em;
+  background: #0042ac;
+  border: none;
+  border-radius: 0.4em;
+}
+
+.selectType {
+  width: 10em;
+  margin: 1em;
+  padding: 0.5em;
+  background: #0042ac;
+  color: #e8e8e8;
+  border: solid #0042ac;
+  border-radius: 0.4em;
+}
+
+.typesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  width: 10em;
+  margin: 1em;
+  padding: 0.2em;
+  background-color: #0042ac;
+  color: #e8e8e8;
+  border: solid transparent;
+  border-radius: 0.4em;
+}
+
+.btn:hover {
+  border: solid #e8e8e8;
+  background: #022d76;
+}

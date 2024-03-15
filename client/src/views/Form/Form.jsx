@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTypes } from "../../redux/actions/actions";
+import { getPokemons, getTypes } from "../../redux/actions/actions";
 import { validation } from "./validation";
 import style from "./Form.module.css";
 
@@ -36,7 +36,7 @@ const Form = () => {
       const { data } = await axios.post(URL, pokemon);
       return data;
     } catch (error) {
-      console.log(error.response.data.error);
+      alert(error.response.data.error);
     }
   };
 
@@ -103,8 +103,11 @@ const Form = () => {
         weight: 0,
         types: [],
       });
+
+      dispatch(getPokemons());
+      alert("Pokemon creado con exito");
     } else {
-      console.log("Hay errores en el form");
+      alert("There are errors in the form");
     }
   };
 
@@ -221,7 +224,7 @@ const Form = () => {
             {errors.weight && <span>{errors.weight}</span>}
             <br />
             <label>
-              Types:
+              <h4 className={style.text}>Types:</h4>
               {types.map((type) => (
                 <div key={type.name} className={style.typesContainer}>
                   <input
@@ -242,7 +245,6 @@ const Form = () => {
             {errors.types && <span>{errors.types}</span>}
             <br />
             <button type="submit" className={style.btn}>
-              {" "}
               Submit
             </button>
           </form>

@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
 
     if (!name || !image || !ps || !atk || !def || !types)
       return res.status(400).json({
-        error: "Faltan llenar los datos obligatorios",
+        error: "Mandatory fields are missing",
       });
 
     const nameRegex = /^[a-zA-Z]+$/;
@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
 
     if (name.length > 15)
       return res.status(400).json({
-        error: "El nombre solo puede contener hasta 15 caracteres",
+        error: "The name can only contain letters",
       });
 
     const statsRegex = /^\d{1,3}$/;
@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
 
     if (invalidStat)
       return res.status(400).json({
-        error: `Valor invalido en ${invalidStat}, solo se permiten números hasta 3 digitos`,
+        error: `Invalid value in ${invalidStat}, only numbers up to 3 digits are allowed.`,
       });
 
     let typesDB = [];
@@ -45,7 +45,7 @@ module.exports = async (req, res) => {
 
     if (invalidTypes.length > 0) {
       return res.status(400).json({
-        error: `Tipo/s de Pokémon inválido/s: ${invalidTypes.join(", ")}`,
+        error: `Invalid Pokémon type(s): ${invalidTypes.join(", ")}`,
       });
     }
 

@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
 
     if (pokemons.length === 0) {
       res.status(404).json({
-        error: "No se encontraron pokmenos con el nombre especificado",
+        error: "No pokemons found with the specified name",
       });
     } else {
       res.status(200).json(pokemons);

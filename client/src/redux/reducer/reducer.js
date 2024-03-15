@@ -6,10 +6,13 @@ import {
   FILTER_BY_ORIGIN,
   ORDER_BY_NAME,
   ORDER_BY_ATK,
+  GET_POKEMONS_DB,
+  DELETE_POKEMON,
 } from "../actions/actions-types";
 const initialState = {
   allPokemons: [],
   pokemons: [],
+  pokemonsDB: [],
   types: [],
 };
 
@@ -78,6 +81,17 @@ function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         pokemons: orderedPokemonsByAtk,
+      };
+    case GET_POKEMONS_DB:
+      return {
+        ...state,
+        pokemonsDB: payload,
+      };
+
+    case DELETE_POKEMON:
+      return {
+        ...state,
+        pokemonsDB: payload,
       };
 
     default:

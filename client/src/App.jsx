@@ -12,6 +12,7 @@ import Error404 from "./views/Error404/Error404";
 import { getPokemonsByName } from "./redux/actions/actions";
 
 function App() {
+  console.log("hola");
   const dispatch = useDispatch();
 
   const location = useLocation();
